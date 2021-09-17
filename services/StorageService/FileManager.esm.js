@@ -1,9 +1,6 @@
 class FileManager{
-    constructor(strategy){
-        if(strategy)
-            this._strategy = strategy;
-        else 
-            this._strategy  = null;
+    constructor(){
+        this._strategy  = null;
     }
 
     set strategy(strategy){
@@ -28,4 +25,4 @@ class FileManager{
 
 }
 
-module.exports = FileManager;
+export default FileManager;

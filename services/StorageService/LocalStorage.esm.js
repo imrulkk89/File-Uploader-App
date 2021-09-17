@@ -1,5 +1,7 @@
 class LocalStorage {
-    constructor(){}
+    constructor(){
+        this._name = 'local';
+    }
 
     upload(){
         console.log('File uploading to local storage');
@@ -15,4 +17,4 @@ class LocalStorage {
 
 }
 
-module.exports = LocalStorage;
+export default LocalStorage;
