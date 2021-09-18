@@ -1,17 +1,28 @@
+import fs from 'fs';
+import dotEnv from 'dotenv';
+dotEnv.config();
+
+const fileHandler = fs.promises;
 class LocalStorage {
     constructor(){
         this._name = 'local';
     }
 
-    upload(){
-        console.log('File uploading to local storage');
+    async upload(file){        
+        try {                 
+            await fileHandler.writeFile(`${process.env.FOLDER}/${file.newfilename}`, file.buffer);
+            return true;            
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
     }
 
-    read(){
+    async read(){
         console.log('File read from local storage');
     }
 
-    delete(){
+    async delete(){
         console.log('File deleting from local storage');
     }
 
