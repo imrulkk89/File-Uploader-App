@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
   res.send({greetings: "HelloWorld"});
 });
 
-router.post('/file', fileUpload.single('any-file') , FileController.upload); 
+router.post('/files', fileUpload.single('any-file') , FileController.upload); 
+router.get('/files/:publicKey', FileController.read);
 
 export default router;

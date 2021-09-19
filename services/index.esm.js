@@ -7,7 +7,8 @@ import dotEnv from 'dotenv';
 dotEnv.config();
 
 const storageService = DIContainer.get(TYPES.StorageService);
-const fileManager = DIContainer.get(TYPES.FileManager);
+const dbService      = DIContainer.get(TYPES.DbService);
+const fileManager    = DIContainer.get(TYPES.FileManager);
 
 storageService.addStrategy(new GCPStorage());
 storageService.addStrategy(new LocalStorage());
@@ -15,6 +16,7 @@ storageService.addStrategy(new LocalStorage());
 fileManager.strategy = storageService.getStrategy(process.env.PROVIDER);
 
 export {
-    fileManager
+    fileManager,
+    dbService
 }
 

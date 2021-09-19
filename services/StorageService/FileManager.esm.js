@@ -15,8 +15,8 @@ class FileManager{
         this._strategy.upload(file);    
     }
 
-    read(){
-        this._strategy.read();
+    read(fileName){
+      return this._strategy.read(fileName);
     }
 
     delete(){

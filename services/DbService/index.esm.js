@@ -1,5 +1,6 @@
 import fs from 'fs';
 import dotEnv from 'dotenv';
+import exp from 'constants';
 
 dotEnv.config();
 const fileHandler = fs.promises;
@@ -24,4 +25,17 @@ class DbService{
         data.push(info);
         await fileHandler.writeFile(this._db, data);
     }
+
+    find = async (publicKey) => {
+       const data = await this.read();
+       if(data.length){
+           return data.find(element => element.public_key === publicKey);             
+       } 
+    }
+
+    delete  = async () => {
+
+    }
 }
+
+export default DbService;
