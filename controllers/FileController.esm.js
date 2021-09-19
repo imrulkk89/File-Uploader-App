@@ -8,7 +8,7 @@ class FileController{
         const newFileName = makeFileNameUnique(file.originalname);
         file.newfilename = newFileName;
 
-        const result = await fileManager.upload(file);
+        const result =  fileManager.upload(file);
         if(result){
             const { publicKey, privateKey } = cryptoService.generateKeys();
             const fileInfo = {
