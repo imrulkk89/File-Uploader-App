@@ -7,9 +7,9 @@ class CryptoService{
     }
 
     generateKeys = () => {
-        this._diffHell.generateKeys('base64');
-        const publicKey = this._diffHell.getPublicKey('base64');
-        const privateKey = this._diffHell.getPrivateKey('base64');
+        this._diffHell.generateKeys('hex');
+        const publicKey = this._diffHell.getPublicKey('hex');
+        const privateKey = this._diffHell.getPrivateKey('hex');
 
         return {publicKey, privateKey};
     }
