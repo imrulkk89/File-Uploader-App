@@ -10,8 +10,6 @@ inversify.decorate(inversify.injectable(), StorageService);
 inversify.decorate(inversify.injectable(), FileManager);
 inversify.decorate(inversify.injectable(), DbService);
 
-
-
 const DIContainer = new inversify.Container();
 
 DIContainer.bind(TYPES.StorageService).to(StorageService);

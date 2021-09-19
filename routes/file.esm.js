@@ -11,5 +11,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/files', fileUpload.single('any-file') , FileController.upload); 
 router.get('/files/:publicKey', FileController.read);
+router.delete('/files/:privateKey', FileController.delete);
 
 export default router;

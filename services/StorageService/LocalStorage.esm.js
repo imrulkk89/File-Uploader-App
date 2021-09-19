@@ -27,8 +27,14 @@ class LocalStorage {
         }        
     }
 
-    async delete(){
-        console.log('File deleting from local storage');
+    async delete(fileName){
+        try {
+            await fileHandler.unlink(`${this._bucket}/${fileName}`);
+            return true;
+        } catch (error) {
+            console.error(error);
+            return false;
+        }
     }
 
 }

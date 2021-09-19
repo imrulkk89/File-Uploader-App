@@ -12,15 +12,15 @@ class FileManager{
     }
     
     upload(file){
-        this._strategy.upload(file);    
+      return this._strategy.upload(file);    
     }
 
     read(fileName){
       return this._strategy.read(fileName);
     }
 
-    delete(){
-        this._strategy.delete();
+    delete(fileName){
+      return this._strategy.delete(fileName);
     }
 
 }

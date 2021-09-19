@@ -1,6 +1,5 @@
 import fs from 'fs';
 import dotEnv from 'dotenv';
-import exp from 'constants';
 
 dotEnv.config();
 const fileHandler = fs.promises;
@@ -21,20 +20,38 @@ class DbService{
     }
 
     wirte = async (info) => {
-        const data = await this.read() || [];
-        data.push(info);
-        await fileHandler.writeFile(this._db, data);
+        try {
+            const data = await this.read() || [];
+            data.push(info);
+            await fileHandler.writeFile(this._db, JSON.stringify(data));
+        } catch (error) {
+            console.error(error);
+        }      
     }
 
     find = async (publicKey) => {
        const data = await this.read();
        if(data.length){
            return data.find(element => element.public_key === publicKey);             
+       }else {
+           return false;
        } 
     }
 
-    delete  = async () => {
-
+    delete  = async (privateKey) => {
+        const data = await this.read();
+        if(data.length){
+           const selectedData = data.find(element => element.private_key === privateKey);
+           if(selectedData){
+               const newData = data.filter(element => element.private_key != privateKey);
+               await fileHandler.writeFile(this._db, JSON.stringify(newData));
+            return selectedData; 
+           }else{
+               return false;
+           }  
+        }else{
+            return false;
+        }
     }
 }
 
