@@ -6,16 +6,15 @@ const fileHandler = fs.promises;
 class LocalStorage {
     constructor(){
         this._name = 'local';
-        this._bucket = process.env.FOLDER;
+        this._bucket = process.env.FOLDER;        
     }
 
     async upload(file){        
         try {                 
-            await fileHandler.writeFile(`${this._bucket}/${file.newfilename}`, file.buffer);
-            return true;            
+            await fileHandler.writeFile(`${this._bucket}/${file.newfilename}`, file.buffer);                      
         } catch (error) {
-            console.log(error);
-            return false;
+            console.error(error);
+            throw error;
         }
     }
 
@@ -23,20 +22,19 @@ class LocalStorage {
         try {                
             return fs.createReadStream(`${this._bucket}/${fileName}`);                                                             
         } catch (error) {
-            console.log(error);
+            console.error(error);
+            throw error;
         }        
     }
 
     async delete(fileName){
         try {
-            await fileHandler.unlink(`${this._bucket}/${fileName}`);
-            return true;
+            await fileHandler.unlink(`${this._bucket}/${fileName}`);            
         } catch (error) {
             console.error(error);
-            return false;
+            throw error;
         }
     }
-
 }
 
 export default LocalStorage;

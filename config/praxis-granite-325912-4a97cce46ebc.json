@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "praxis-granite-325912",
+  "private_key_id": "4a97cce46ebc31db1575c522b2efd643d477f034",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDAvzn3LYwWjC9F\nunw510YPb6qIBW9KuGjaY/6XLP50vrUCg6JBkyul36hXHTdeVNyZpFTFuf3YsCvB\n6g9AgBuIDCL8tg+uFY07LsNV8sY8JDj4EstzL8VTtJZZQ5xwOYHcqu4CAEUGZFDc\nSCuk9LwHoJFfkej/H/ZPk+llkR0cN+AvnjGVXpLP6Ey5hslDqajGoslncJQdT3yp\nEJQUHMEd5/nD8C5yOw6mMhHBQU1X4VKlUGreGqIMnPbpr5adj28kk7hRjw9y8Wgd\nIsqlvxpRXGc1IoDQYLx3o/IyoKXOkVAkxaPQyyUvti5Mics1oDKkQgUpeTXRfWDj\nNLSIFDVxAgMBAAECggEACXHVWff7Y1IfMYrVHNMgSxACX9k+/imnHvxuCeOvMZ1J\nVVmJ5oNa94J2xz4BQTgQpIlZi2QfvNx1Ex1wUzgedpN8VhG9wZ6rZaOsTVaGFtsC\nMksJeRggJ90zeNBH/B/KmJDaSh16mbjqABab54tZI1k027qp8MZqKrVpZwwDTHyX\n2tmYkvtXuFEDwzXLcLAP8UGn92zd16iMReuKdhIcgMJpkGBTxi9a96HaGTr/v4X/\nFijtMlzo/8HBg8Jja+mCyB4HIBmednheMOwvz6+EPWRtb9DNYcjbWXTTuDdNZzTG\n3wJ6ghFajHITI1hprUvDjoNAiAcYzzh+1XLg8TDHoQKBgQD5Cr09vu65H5SgFB21\nBitMReJ6z+ZN3akQLhoJKfgN5i9aAXqMnyAWlWkI4I3ZWz0LhEWuS5I24YqflZ54\njiH6kre86rFwUeUk+L7ZJ1feM8wTU8ecLh4IzY9BwQpWiDcqIxKdWVCDMWK9iaCT\nc3D/KWPLMV5bPgZU+hA/q+GXVQKBgQDGIdcPbVKQiP55+x2dQ1N55LIt3+kXLGFk\nykU4W6s3vsvWOT9b5eG/A+l5gyGZF/qJcRPSk/WTjvo32htHwVYRv98f9Jj3ZWEi\nrISfSdfa8mjvJqMgzOrDNf9xmJ7X3s+laZjBwnpRY2lQ+ULYYuL55tj89nyuLK9F\nC9DhlustrQKBgQD4/R61BBcC6SscXOBSo6dYa6qCpScaBJrJ/X20WcySgOgosb/H\npjRbv+eyo2fOv2SqBgXwu8ekrRx+bwVwfJJGRrgC3hanOInDzBprW+WC2ACZ9jJk\n2MrYfERVNl5So3+b1lL/FFPlxtN0sovjwBBiXAxVE7fFu55zCUyDjCJQvQKBgBOQ\nLdL5IWjiDfZvZBouFqT3ftxmunYuTKOOEU2iR4KmlSve1TG2vhaFRV1ZJE0gf/1o\nK+Pj9iCOwogXQhBQt7Xi8x4NobjzyqaI0EOGIAkfXFsYvoyzjw6dW06VGkIIXwpf\nJdUj5b35ieGT6xTAltbEA3Lex6rPALNZmlNb+na1AoGBAPQZsXrMRuaQExXIueIz\nOff3z+b+qs3G6mgXrTcJ9aOUQ22kQVFseAiiWPiNMKARcWA9dBSKyYMHzg8o5ntL\n9i2op6ff7dUnOahXVoKoiSc7gA/H4yRIvSSCJg9K50S9EohKPjfDXL+lv0Q8IrtE\npNcgIxnbgl/10G/Z/oByS87y\n-----END PRIVATE KEY-----\n",
+  "client_email": "meldcx-bucket@praxis-granite-325912.iam.gserviceaccount.com",
+  "client_id": "103758800613121047015",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/meldcx-bucket%40praxis-granite-325912.iam.gserviceaccount.com"
+}

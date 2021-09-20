@@ -11,16 +11,16 @@ class FileManager{
         return this._strategy;
     }
     
-    upload(file){
-      return this._strategy.upload(file);    
+    async upload(file){
+      return await this._strategy.upload(file);    
     }
 
     read(fileName){
       return this._strategy.read(fileName);
     }
 
-    delete(fileName){
-      return this._strategy.delete(fileName);
+    async delete(fileName){
+      return await this._strategy.delete(fileName);
     }
 
 }
