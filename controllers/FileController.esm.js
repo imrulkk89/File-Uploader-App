@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { fileManager, dbService, cryptoService } from '../services/index.esm.js';
 import { makeFileNameUnique } from '../utils/index.esm.js';
 
@@ -17,7 +18,8 @@ class FileController{
                 file_name: newFileName,
                 mime_type: file.mimetype,
                 private_key: privateKey,
-                public_key: publicKey
+                public_key: publicKey,
+                processed_time: moment().format()
             }
 
             await dbService.wirte(fileInfo);
@@ -47,7 +49,18 @@ class FileController{
                 res.setHeader('Content-Type', data.mime_type);
                 res.setHeader('Content-Disposition', `attachment; filename=${data.file_name}`);
 
-                file.on('close', () => {
+                file.on('close', async () => {
+
+                    const fileInfo = {
+                        file_name: data.file_name,
+                        mime_type: data.mime_type,
+                        private_key: data.private_key,
+                        public_key: data.public_key,
+                        processed_time: moment().format()
+                    }
+
+                    await dbService.update(data.private_key, fileInfo); 
+
                     res.end();
                 });
 

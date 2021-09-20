@@ -62,11 +62,26 @@ class DbService{
         }        
     }
 
+    update = async (key, info) => {
+        try {
+            const { data } = await this.find(key);
+            await this.delete(data.private_key);
+            await this.wirte(info);
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
     delete  = async (privateKey) => {
         try {
             const data = await this.read();
             if(data.length){                      
                 const newData = data.filter(element => element.private_key != privateKey);
+
+                if(!newData) 
+                    throw new Error('No data found by this private key.');
+
                 await fileHandler.writeFile(this._db, JSON.stringify(newData));                       
             }else{                
                 throw new Error('No data in database'); 
