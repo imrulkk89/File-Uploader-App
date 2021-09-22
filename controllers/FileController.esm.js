@@ -1,19 +1,24 @@
 import moment from 'moment';
-import { fileManager, dbService, cryptoService } from '../services/index.esm.js';
 import { makeFileNameUnique } from '../utils/index.esm.js';
 
 class FileController{
+
+    constructor(fileManager, dbService, cryptoService){
+        this._fileManager = fileManager;
+        this._dbService = dbService;
+        this._cryptoService = cryptoService;
+    }
     
-    static upload = async (req, res) => {
+    upload = async (req, res) => {
 
         try {
             const file = req.file;
             const newFileName = makeFileNameUnique(file.originalname);
             file.newfilename = newFileName;
 
-             await fileManager.upload(file);
+             await this._fileManager.upload(file);
             
-            const { publicKey, privateKey } = cryptoService.generateKeys();
+            const { publicKey, privateKey } = this._cryptoService.generateKeys();
             const fileInfo = {
                 file_name: newFileName,
                 mime_type: file.mimetype,
@@ -22,7 +27,7 @@ class FileController{
                 processed_time: moment().format()
             }
 
-            await dbService.wirte(fileInfo);
+            await this._dbService.wirte(fileInfo);
 
             const response = {
                 message:"file uploaded",
@@ -37,14 +42,14 @@ class FileController{
         }            
     }
 
-    static read = async (req, res) => {
+    read = async (req, res) => {
         try {
             const { publicKey }= req.params;
-            const { data, key } = await dbService.find(publicKey);
+            const { data, key } = await this._dbService.find(publicKey);
             
             if(data && key === 'publicKey'){
 
-                const file = fileManager.read(data.file_name);
+                const file = this._fileManager.read(data.file_name);
                             
                 res.setHeader('Content-Type', data.mime_type);
                 res.setHeader('Content-Disposition', `attachment; filename=${data.file_name}`);
@@ -59,7 +64,7 @@ class FileController{
                         processed_time: moment().format()
                     }
 
-                    await dbService.update(data.private_key, fileInfo); 
+                    await this._dbService.update(data.private_key, fileInfo); 
 
                     res.end();
                 });
@@ -81,15 +86,15 @@ class FileController{
         
     }
 
-    static delete = async (req, res) => {
+    delete = async (req, res) => {
         
         try {
             const { privateKey }= req.params;
-            const { data, key } = await dbService.find(privateKey);
+            const { data, key } = await this._dbService.find(privateKey);
 
             if(data && key === 'privateKey'){
-                await fileManager.delete(data.file_name);
-                await dbService.delete(privateKey);
+                await this._fileManager.delete(data.file_name);
+                await this._dbService.delete(privateKey);
                 res.status(201).json({message: 'file deleted successfully.'});
             }else{
                throw new Error('Private key not found!'); 
