@@ -1,7 +1,7 @@
-import fs from 'fs';
-import dotEnv from 'dotenv';
-
+const fs = require('fs');
+const dotEnv = require('dotenv');
 dotEnv.config();
+
 const fileHandler = fs.promises;
 
 class DbService{
@@ -19,7 +19,7 @@ class DbService{
         }         
     }
 
-    wirte = async (info) => {
+    write = async (info) => {
         try {
             const data = await this.read() || [];
             data.push(info);
@@ -65,7 +65,7 @@ class DbService{
         try {
             const { data } = await this.find(key);
             await this.delete(data.private_key);
-            await this.wirte(info);
+            await this.write(info);
         } catch (error) {
             console.error(error);
             throw error;
@@ -92,4 +92,4 @@ class DbService{
     }            
 }
 
-export default DbService;
+module.exports = DbService;

@@ -7,12 +7,10 @@ const getRandomString = (length) => {
     return result;
 }
 
-const makeFileNameUnique = (fileName) => {    
+exports.makeFileNameUnique = (fileName) => {    
     const randomString = getRandomString(10);
     return `${randomString}_${fileName}`;
 }
 
-export {
-    getRandomString,
-    makeFileNameUnique
-}
+
+

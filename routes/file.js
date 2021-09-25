@@ -1,7 +1,6 @@
-import express from 'express';
-import  fileUpload  from '../middlewares/fileUploader.esm.js';
-//import FileController from '../controllers/FileController.esm.js';
-import { fileController } from '../services/index.esm.js';
+const  express = require('express');
+const  { fileUpload }  = require('../middlewares/fileUploader.js');
+const  { fileController } = require('../services/index.js');
 
 const router = express.Router();
 
@@ -14,4 +13,4 @@ router.post('/files', fileUpload.single('any-file') , fileController.upload);
 router.get('/files/:publicKey', fileController.read);
 router.delete('/files/:privateKey', fileController.delete);
 
-export default router;
+module.exports = router;

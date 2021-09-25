@@ -1,10 +1,10 @@
-import multer from 'multer';
-import dotEnv from 'dotenv';
+const multer = require('multer');
+const dotEnv = require('dotenv');
 dotEnv.config();
 
 const fileStorage = multer.memoryStorage();
 
-const fileUpload = multer({
+exports.fileUpload = multer({
     storage: fileStorage,
     limits: {
         fileSize: process.env.MAX_FILE_SIZE   
@@ -14,4 +14,3 @@ const fileUpload = multer({
     }
 });
 
-export default fileUpload;

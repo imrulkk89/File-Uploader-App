@@ -1,7 +1,7 @@
-import cron from 'node-cron';
-import {  cronService } from './services/index.esm.js';
+const cron = require('node-cron');
+const {  cronService } = require('./services/index.js');
 
-const cronJob =  () => {
+exports.cronJob =  () => {
     cron.schedule('*/1 * * * *', async () => {
         console.log('Deleting Inactive files...');
 
@@ -12,9 +12,9 @@ const cronJob =  () => {
             console.error(error);
         }
 
-      });       
+    });       
 }
 
-export default cronJob;
+
 
 

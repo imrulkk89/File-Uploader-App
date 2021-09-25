@@ -1,5 +1,5 @@
-import moment from 'moment';
-import { makeFileNameUnique } from '../utils/index.esm.js';
+const moment = require('moment');
+const { makeFileNameUnique } = require('../utils/index.js');
 
 class FileController{
 
@@ -27,7 +27,7 @@ class FileController{
                 processed_time: moment().format()
             }
 
-            await this._dbService.wirte(fileInfo);
+            await this._dbService.write(fileInfo);
 
             const response = {
                 message:"file uploaded",
@@ -106,4 +106,4 @@ class FileController{
     }
 }
 
-export default FileController;
+module.exports = FileController;

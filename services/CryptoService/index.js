@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+const crypto = require('crypto');
 
 class CryptoService{
     constructor(length){
@@ -16,4 +16,4 @@ class CryptoService{
 
 }
 
-export default CryptoService;
+module.exports = CryptoService;

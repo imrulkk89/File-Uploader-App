@@ -1,5 +1,5 @@
-import fs from 'fs';
-import dotEnv from 'dotenv';
+const fs = require('fs');
+const dotEnv = require('dotenv');
 dotEnv.config();
 
 const fileHandler = fs.promises;
@@ -37,4 +37,4 @@ class LocalStorage {
     }
 }
 
-export default LocalStorage;
+module.exports = LocalStorage;

@@ -9,4 +9,4 @@ const TYPES = {
     FileController: Symbol('FileController')
 }
 
-export default TYPES;
+module.exports = TYPES;

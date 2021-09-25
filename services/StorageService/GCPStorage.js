@@ -1,7 +1,7 @@
-import { Storage } from '@google-cloud/storage';
-import got from 'got';
+const { Storage } = require('@google-cloud/storage');
+const got = require('got');
 
-import dotEnv from 'dotenv';
+const dotEnv = require('dotenv');
 dotEnv.config();
 
 const storage = new Storage({
@@ -66,4 +66,4 @@ class GCPStorage {
     }
 }
 
-export default GCPStorage;
+module.exports = GCPStorage;

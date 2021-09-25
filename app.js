@@ -1,14 +1,15 @@
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
-import rateLimit from 'express-rate-limit';
-import dotEnv from 'dotenv';
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const rateLimit = require('express-rate-limit');
 
-import fileRouter from './routes/file.esm.js';
-
+const dotEnv = require('dotenv');
 dotEnv.config();
 
+const fileRouter = require('./routes/file.js');
+
 const app = express();
+
 const limiter = rateLimit({
     windowMs: process.env.API_RATE_LIMIT_MS,
     max: process.env.API_RATE_LIMIT_HIT
@@ -22,4 +23,4 @@ app.use(limiter);
 
 app.use('/', fileRouter);
 
-export default app;
+module.exports = app;

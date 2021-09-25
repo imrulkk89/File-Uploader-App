@@ -1,20 +1,20 @@
-import 'reflect-metadata';
-import inversify from 'inversify';
-import TYPES from './types.esm.js';
+require('reflect-metadata');
+const inversify = require('inversify');
+const TYPES = require('./types.js');
 
-import StorageService from '../services/StorageService/index.esm.js';
-import DbService from '../services/DbService/index.esm.js';
-import CryptoService from '../services/CryptoService/index.esm.js';
-import CronService from '../services/CronService/index.esm.js';
-import FileManager from '../services/StorageService/FileManager.esm.js';
-
-import FileController from '../controllers/FileController.esm.js';
-
-import GCPStorage from '../services/StorageService/GCPStorage.esm.js';
-import LocalStorage from '../services/StorageService/LocalStorage.esm.js';
-
-import dotEnv from 'dotenv';
+const dotEnv = require('dotenv');
 dotEnv.config();
+
+const StorageService = require('../services/StorageService/index.js');
+const DbService = require('../services/DbService/index.js');
+const CryptoService = require('../services/CryptoService/index.js');
+const CronService = require('../services/CronService/index.js');
+const FileManager = require('../services/StorageService/FileManager.js');
+
+const FileController = require('../controllers/FileController.js');
+
+const GCPStorage = require('../services/StorageService/GCPStorage.js');
+const LocalStorage = require('../services/StorageService/LocalStorage.js');
 
 inversify.decorate(inversify.injectable(), StorageService);
 inversify.decorate(inversify.injectable(), DbService);
@@ -55,7 +55,5 @@ inversify.decorate(inversify.inject(TYPES.DbService), FileController, 1);
 inversify.decorate(inversify.inject(TYPES.CryptoService), FileController, 2);
 
 
-export{
-    DIContainer
-}
+exports.DIContainer = DIContainer;
 

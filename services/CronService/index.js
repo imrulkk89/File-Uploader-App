@@ -1,5 +1,5 @@
-import moment from 'moment';
-import dotEnv from 'dotenv';
+const moment = require('moment');
+const dotEnv = require('dotenv');
 dotEnv.config();
 
 class CronService{
@@ -48,4 +48,4 @@ class CronService{
     }
 }
 
-export default CronService;
+module.exports = CronService;

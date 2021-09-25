@@ -1,4 +1,4 @@
-import { dbService } from '../../services/index.esm.js'
+const { dbService } = require('../../services/index.js');
 
 describe('Database Service Tests', () => {
     describe('Database Read Method test', () => {

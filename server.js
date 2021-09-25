@@ -1,7 +1,7 @@
-import app from './app.esm.js';
-import cronJob from  './cron.esm.js';
-import dotenv from 'dotenv';
+const app = require('./app.js');
+const { cronJob } = require('./cron.js');
 
+const dotenv = require('dotenv');
 dotenv.config();
 
 //cronJob();

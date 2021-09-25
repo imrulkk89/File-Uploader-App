@@ -13,6 +13,6 @@ class StorageService{
 }
 
 
-export default StorageService;
+module.exports = StorageService;
 
 
