@@ -1,6 +1,5 @@
 import fs from 'fs';
 import dotEnv from 'dotenv';
-import { error } from 'console';
 
 dotEnv.config();
 const fileHandler = fs.promises;

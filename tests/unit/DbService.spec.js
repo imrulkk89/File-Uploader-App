@@ -1,7 +1,4 @@
-import { DIContainer } from '../../ioc/index.esm.js';
-import  TYPES  from '../../ioc/types.esm.js'
-
-const dbService = DIContainer.get(TYPES.DbService);
+import { dbService } from '../../services/index.esm.js'
 
 describe('Database Service Tests', () => {
     describe('Database Read Method test', () => {
